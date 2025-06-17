@@ -11,7 +11,7 @@ tags:
 
 This example starts up a [FastAPI](https://fastapi.tiangolo.com/) server with selenium already configured.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/pXu4Vv?referralCode=qL1H20)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/pXu4Vv)
 
 ## ✨ Features
 
