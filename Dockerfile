@@ -1,20 +1,16 @@
 ARG PORT=443
 
-
-
 FROM cypress/browsers:latest
 
+# Install necessary dependencies including pipx
+RUN apt-get update && apt-get install -y python3 python3-pip && pip install pipx
 
-RUN apt-get install python3 -y
-
-RUN echo $(python3 -m site --user-base)
-
+# Install requirements using pipx
 COPY requirements.txt  .
+RUN pipx install -r requirements.txt  
 
-ENV PATH /home/root/.local/bin:${PATH}
-
-RUN  apt-get update && apt-get install -y python3-pip && pip install -r requirements.txt  
-
+# Copy the rest of the application
 COPY . .
 
+# Start the app using uvicorn
 CMD uvicorn main:app --host 0.0.0.0 --port $PORT
